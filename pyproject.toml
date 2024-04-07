@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "cat-facts-api-tests"
+version = "0.1.0"
+description = ""
+authors = ["Markella Efthymiou <efthymioumarkella@gmail.com>"]
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.1.1"
+pylint = "^3.1.0"
+python-dotenv = "^1.0.1"
+allure-pytest = "^2.13.5"
+requests = "^2.31.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^21.12b0"
+isort = "^5.10.3"
+pre-commit = "^2.15.0"
+
+
+[tool.pytest.ini_options]
+addopts = [
+  "--clean-alluredir",
+  "--alluredir=reports/allure-results",
+  "--color=yes",
+  "-s",
+  "-p no:logging"
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
