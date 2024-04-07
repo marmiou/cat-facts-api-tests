@@ -31,7 +31,9 @@ class TestCatfactsAPI:
 
     @pytest.mark.api
     def test_random_fact_should_be_equal_with_fact_by_id(self, base_url):
-        random_response = requests.get(base_url + RANDOM_ENDPOINT, params={"animal_type": "cat", "amount": 2})
+        random_response = requests.get(
+            base_url + RANDOM_ENDPOINT, params={"animal_type": "cat", "amount": 2}
+        )
         assert random_response.status_code == 200
         random_fact_data_list = random_response.json()
         logging.info(f"Random facts Response: {random_response.text}")
@@ -46,4 +48,3 @@ class TestCatfactsAPI:
         logging.info(f"fact by object_a_id has Response: {fact_by_id_response.text}")
 
         assert_fact_equal(actual_fact_by_id_data, expected_fact)
-

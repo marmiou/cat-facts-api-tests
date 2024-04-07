@@ -26,4 +26,4 @@ def pytest_configure(config):
     logging.basicConfig(level=logging.INFO)
 
 
-pytest.mark.api = pytest.mark.mark(name='api')
+pytest.mark.api = pytest.mark.mark(name="api")
