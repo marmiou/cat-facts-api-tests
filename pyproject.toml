@@ -5,7 +5,6 @@ description = ""
 authors = ["Markella Efthymiou <efthymioumarkella@gmail.com>"]
 readme = "README.md"
 
-
 [tool.poetry.dependencies]
 python = "^3.12"
 pytest = "^8.1.1"
@@ -13,12 +12,10 @@ pylint = "^3.1.0"
 python-dotenv = "^1.0.1"
 allure-pytest = "^2.13.5"
 requests = "^2.31.0"
-black = "^24.3.0"
-
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.10.3"
-
+black = "^24.3.0"
 
 [tool.pytest.ini_options]
 addopts = [
