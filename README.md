@@ -67,11 +67,14 @@ To open reports execute:
 allure serve reports/allure-results
 ```
 
+## Test Table
 
-| TestCase Title | Description                                                                                         |
-|----------------|-----------------------------------------------------------------------------------------------------|
-|  test_get_facts_should_follow_schema  | Get /facts/ endpoint response should follow Schema based on Fact Model                              |
-| test_random_fact_should_be_equal_with_fact_by_id  | Querying with fact id (/facts/ retrieved from a random fact /facts/random should return equal facts |
+| Test Case Description                                                     | Test Method                                                      |
+|---------------------------------------------------------------------------|------------------------------------------------------------------|
+| Check if all mandatory attributes exist in the API response               | `test_get_facts_attributes_should_exist`                        |
+| Check if all mandatory attributes have expected types                     | `test_get_facts_attributes_should_have_expected_type`            |
+| Check if fact IDs are unique                                              | `test_fact_ids_should_be_unique`                                 |
+| Equality of a random fact attributes with those of a fact retrieved by ID | `test_random_fact_should_be_equal_with_fact_by_id`               |
 
 
 ## Built With
