@@ -77,6 +77,54 @@ allure serve reports/allure-results
 | Equality of a random fact attributes with those of a fact retrieved by ID | `test_random_fact_should_be_equal_with_fact_by_id`               |
 
 
+## What validations have been used and why?
+
+### test_get_facts_attributes_should_exist:
+
+This test aims to ensure that when getting facts from the endpoint, each fact object in the response JSON contains all 
+the mandatory attributes.
+
+Validation: The test iterates over each fact in the response JSON and checks if it contains all the mandatory attributes 
+using the assert_facts_mandatory_attribute_existence function.
+
+Purpose: Ensures that the API response contains the necessary data for each fact object, guaranteeing that no mandatory 
+attributes are missing
+
+### test_get_facts_attributes_should_have_expected_type:
+
+This test verifies that the data types of the attributes in each fact object returned by the endpoint are as expected.
+
+Validation: Test iterates over each fact in the response JSON and checks if the data types of all attributes are as 
+expected using the assert_facts_mandatory_attribute_type function.
+
+Purpose: Ensures data integrity and consistency by confirming that the attributes have the correct data types. This 
+helps prevent unexpected errors due to type mismatches during data processing.
+
+
+### test_fact_ids_should_be_unique:
+
+This test ensures that the IDs assigned to each fact in the response JSON are unique.
+
+Validation: It constructs a list of fact IDs from the JSON response and checks if the length of this list matches the 
+length of a set of unique IDs. If they are not equal, it means there are duplicate IDs.
+
+Purpose: Guarantees the uniqueness of fact IDs, which is crucial for data integrity and prevents potential issues such 
+as overwriting or confusion between different facts with the same ID.
+
+### test_random_fact_should_be_equal_with_fact_by_id:
+
+This test verifies the consistency between fetching a random fact and fetching the same fact by its ID.
+
+Validation: It first fetches a random fact, then retrieves the same fact by its ID and compares the retrieved facts' data.
+
+Purpose: Ensures that the random fact retrieved matches the same fact obtained by its ID, validating the consistency 
+and accuracy of data retrieval from the API.
+
+
+Also, all the above tests verify the status code of the response JSON by equality.
+In general, other methods of validation can also be validating headers, schema, handling errors, authorisation etc, but
+we didn't use them here.
+
 ## Built With
 
 - Pytest
